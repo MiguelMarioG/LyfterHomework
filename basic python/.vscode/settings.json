@@ -1,0 +1,25 @@
+{
+    "cSpell.words": [
+        "Airbender",
+        "Benioff",
+        "Charmander",
+        "Charrue",
+        "Elden",
+        "ESRB",
+        "Gengar",
+        "Martino",
+        "Mazin",
+        "Morty",
+        "Pikachu",
+        "pokemons",
+        "Psystrike",
+        "Rockstar",
+        "Roiland",
+        "Sekiro",
+        "Timm",
+        "Videogame",
+        "videogames"
+    ],
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python.REPL.enableREPLSmartSend": false
+}
