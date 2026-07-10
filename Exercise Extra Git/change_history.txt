@@ -1,0 +1,35 @@
+commit 81af85a9be71d400a84eae0d2d02902d50775318 (origin/main, origin/HEAD, main)
+Author: MiguelMarioG <141196402+MiguelMarioG@users.noreply.github.com>
+Date:   Wed Jul 8 15:03:45 2026 -0600
+
+    Initial commit
+
+
+This is the first commit automatically generated when we clone the lyfterhomework
+repository to my computer via the terminal using `git clone` and the URL copied from GitHub.
+
+===========================================================================================================================
+commit cc73a7d274b2cf3aa868e3d86eb6776bdae1d27e
+Author: Miguel Mario Guzman <miguelmarioguz@gmail.com>
+Date:   Wed Jul 8 15:41:31 2026 -0600
+
+    These are my first exercises of the first 3 modules on Lyfter
+
+
+This is the second commit I used to upload all the work I completed during the first
+three modules at Lyfter—organized into their respective folders and separated by module 
+and I created my first pull request from this commit.
+
+===========================================================================================================================
+commit 9f0f01f72f22a4bdf1795b9a40453d971a8fc3fe (HEAD -> past-exercises, origin/past-exercises)
+Author: Miguel Mario Guzman <miguelmarioguz@gmail.com>
+Date:   Thu Jul 9 21:35:37 2026 -0600
+
+    updating my file
+
+
+This is the third and for now, final commit. I made a small change recommended when my
+first pull request for the GitHub exercise was reviewed: removing a .csv file that I had
+forgotten to modify or delete. In the end, I decided to delete it.
+
+===========================================================================================================================
