@@ -1,13 +1,13 @@
 def check_if_number_is_100(number):
 	if number < 100:
-		raise ValueError('El numero es muy bajo')
+		raise ValueError('The number is to low')
 	elif number > 100:
-		raise ValueError('El numero es muy alto')
+		raise ValueError('The number is to high')
 	
 	return True
 
 def main():
-	number = input('Ingrese un numero')
+	number = input('Enter your number: ')
 	try:
 		number_int = int(number)
 		check_if_number_is_100(number_int)
