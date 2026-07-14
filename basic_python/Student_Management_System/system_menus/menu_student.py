@@ -6,18 +6,20 @@ def student_system_menu ():
         print("3.- See the Top 3 Student's Overall")                      
         print("4.- Average Grade of each Student")  
         print("5.- Delete a Student Information")  
-        print("6.- Failing Students Report")                     
-        print("7.- Exit")                                                  
+        print("6.- Failing Students Report")
+        print("7.- Load / Open data from a CSV file")
+        print("8.- Save / Export data to a CSV file")                    
+        print("9.- Exit")                                                  
         print("=========================================================")
         try:
             option = int(input("Enter your option: "))
             print()
-            if option <= 0 or option > 7:
-                print("Invalid option try again with a valid option (1 - 7)")
+            if option <= 0 or option > 9:
+                print("Invalid option try again with a valid option (1 - 9)")
                 print("====================================================")
             return option
         except ValueError as error:
-            print(f"You must enter a valid number (1 - 7). Letters or symbols are not allowed. ValueError {error}")
+            print(f"You must enter a valid number (1 - 9). Letters or symbols are not allowed. ValueError {error}")
             print("======================================================================================")
 
 
@@ -36,6 +38,8 @@ def student_information_menu ():
 def asking_csv_name():
     print("===============initializing your system file================")
     print("============================================================")
-    csv_name = input ("Enter your file name for initialization: ").strip() + ".csv"
+    csv_name = input ("Enter your file name for initialization: ").strip()
+    if not csv_name.endswith(".csv"):
+        csv_name += ".csv"
     print()
     return csv_name

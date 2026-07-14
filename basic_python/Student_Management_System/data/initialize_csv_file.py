@@ -2,32 +2,58 @@ import csv
 import os
 
 
-def file_exist_to_verify_name_or_section(path):
-    file_exists = os.path.exists(path)
-    return file_exists    
+def save_data_to_csv (path, student_full_data):
+    if not student_full_data:
+        print("There is no data in memory to save on file")
+        print()
+        return
+    
+    headers = [
+        "full name", "section",
+        "spanish grade", "english grade",
+        "social grade", "sciences grade"
+        ]
 
-
-def verify_csv_exist(path):
-    file_exists = os.path.exists(path)
-    if not file_exists:
-        print(f"The File '{path}' not found. choose option #1 to create new data")
-    return file_exists
-
-
-def append_student_to_csv(path, student_data):
-    file_exists = os.path.exists(path)
-    with open(path, 'a', encoding='utf-8', newline="") as file:
-        headers = student_data.keys() 
+    with open (path, "w", encoding="utf-8", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=headers)
-        if not file_exists:
-            print(f"The File '{path}' not found. Creating a new file with headers")
-            writer.writeheader()   
-        writer.writerow(student_data)
-        print("Student information saved successfully!")
+        writer.writeheader()
+
+        for (name, section), info in student_full_data.items():
+            row = {
+                "full name": name,
+                "section" : section,
+                "spanish grade" : info["spanish grade"],
+                "english grade" : info["english grade"],
+                "social grade" : info["social grade"],
+                "sciences grade" : info["sciences grade"]
+            }
+            writer.writerow(row)
+    print(f'Data successfully saved to the file "{path}"!!!')
+    print()
 
 
-def reading_csv_created(path):
-    with open(path, 'r', encoding='utf-8') as file:
+def load_data_from_csv (path, student_full_data):
+    if not os.path.exists(path):
+        print(f'The File "{path}" was not found. Cannot Load the data')
+        print()
+        return False
+    
+    with open (path, "r", encoding="utf-8") as file:
         reader = csv.DictReader(file)
-        student_list = list(reader)   
-    return student_list
+        count = 0
+        for row in reader:
+            name = row["full name"].strip()
+            section = row["section"].strip()
+
+            key = (name, section)
+
+            student_full_data[key] = {
+                "spanish grade" : int(row["spanish grade"]),
+                "english grade" : int(row["section"]),
+                "social grade" : int(row["social grade"],),
+                "sciences grade" : int(row["sciences grade"])
+            }
+            count =+ 1
+    print(f'Successfully Loaded {count} students from "{path}" into memory!')
+    print()
+    return True
