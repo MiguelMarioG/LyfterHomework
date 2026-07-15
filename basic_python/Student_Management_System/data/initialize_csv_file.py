@@ -49,11 +49,11 @@ def load_data_from_csv (path, student_full_data):
 
             student_full_data[key] = {
                 "spanish grade" : int(row["spanish grade"]),
-                "english grade" : int(row["section"]),
+                "english grade" : int(row["english grade"]),
                 "social grade" : int(row["social grade"],),
                 "sciences grade" : int(row["sciences grade"])
             }
-            count =+ 1
+            count += 1
     print(f'Successfully Loaded {count} students from "{path}" into memory!')
     print()
     return True

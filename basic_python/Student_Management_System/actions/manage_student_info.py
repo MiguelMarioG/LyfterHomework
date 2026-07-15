@@ -1,6 +1,3 @@
-import csv
-
-
 def asking_student_name ():
     while True:
         student_name = input ("Enter your Full name: ").strip()
