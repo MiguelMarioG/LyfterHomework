@@ -5,13 +5,16 @@ class Animal():
     def speak(self):
         return "Make a Sound"
 
+
 class Dog(Animal):
     def speak(self):
-        return "Wouf, Guau"
+        return "Guau"
+
 
 class Cat(Animal):
     def speak(self):
-        return "Pssst, Miau"
+        return "Miau"
+
 
 specie = Animal("Fepo")
 dog = Dog("firulais")
