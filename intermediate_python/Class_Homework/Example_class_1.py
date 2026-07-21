@@ -1,13 +1,13 @@
-class circle():
-    def __init__(self, radius):
-        self.radius = radius
+class Circle():
+    def __init__(self):
+        self.radius = 52
         self.pi = 3.1416
 
     def get_area(self):
         area = self.pi * (self.radius**2)
-        print(area)
+        return area
 
 
-radius = int (input("Enter the radius of the circle: "))
-calculation_area = circle(radius)
-calculation_area.get_area()
+calculation_area = Circle()
+total_area = calculation_area.get_area()
+print(total_area)

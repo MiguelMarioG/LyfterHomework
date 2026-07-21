@@ -72,6 +72,6 @@ if __name__ == "__main__":
         left_leg = l_leg
     )
 
-    person = Human("Miguel", my_torso)
+    person = Human("Miguel Mario", my_torso)
 
     person.describe_body()

@@ -1,5 +1,5 @@
 class Person:
-    def __init__(self, name, age=0):
+    def __init__(self, name, age):
         self.name = name
         self.age = age
 
@@ -8,6 +8,23 @@ class Bus:
     def __init__(self):
         self.max_passengers = 8
         self.passengers = []  
+
+
+    def add_passenger(self, person):
+        if len(self.passengers) >= self.max_passengers:
+            print("We're sorry, the bus is completely Full")
+        else:
+            self.passengers.append(person)
+            print(f"The Passenger: {person.name} with an Age of: {person.age} has boarded the Bus")
+
+
+    def remove_passenger(self):
+        if len(self.passengers) == 0:
+            print("The Bus is already Empty")
+        else:
+            removed_passenger = self.passengers.pop()
+            print(f"The Passenger {removed_passenger.name} has gotten off the Bus")
+
 
     def manage_passengers(self):
         while True:
@@ -20,21 +37,14 @@ class Bus:
                 break
 
             elif choice == "a":
-                if len(self.passengers) >= self.max_passengers:
-                    print("We're sorry, the bus is completely Full")
-                else:
-                    passenger_name = input("Enter the Passenger's Name: ")
-                    new_passenger = Person(passenger_name)
-                    self.passengers.append(new_passenger)
-                    print(f"{passenger_name} has boarded the Bus")
+                passenger_name = input("Enter the Passenger's Name: ")
+                passenger_age = int (input("Enter the Passenger's Age: "))
+                new_passenger = Person(passenger_name, passenger_age)
+                self.add_passenger(new_passenger)
 
             elif choice == "r":
-                if len(self.passengers) == 0:
-                    print("The Bus is already Empty")
-                else:
-                    removed_passenger = self.passengers.pop()
-                    print(f"The Passenger {removed_passenger.name} has gotten off the Bus")
-            
+                self.remove_passenger()
+
             else:
                 print("Invalid Option. Try Again")
 
@@ -52,3 +62,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
