@@ -7,14 +7,12 @@ class Rectangle:
 
 
     def get_area(self):
-        if not (self.width < 0 or self.height < 0):
             area = self.width * self.height
             print(f"The Area of your Rectangle is: {area}\n")
-            return 
+            return area
 
 
     def get_perimeter(self):
-        if not (self.width < 0 or self.height < 0):
             perimeter = (2 * self.width) + (2 * self.height)
             print(f"The Perimeter of your Rectangle is : {perimeter}\n")
             return perimeter
