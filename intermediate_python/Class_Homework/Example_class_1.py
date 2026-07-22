@@ -1,6 +1,6 @@
 class Circle():
-    def __init__(self):
-        self.radius = 52
+    def __init__(self, radius:float):
+        self.radius = radius
         self.pi = 3.1416
 
     def get_area(self):
@@ -8,6 +8,5 @@ class Circle():
         return area
 
 
-calculation_area = Circle()
-total_area = calculation_area.get_area()
-print(total_area)
+calculation_area = Circle(radius=62)
+print(f"{calculation_area.get_area():.2f}")
