@@ -1,3 +1,6 @@
+from typing import override
+
+
 class BankAccount():
     def __init__(self, balance:float = 0):
         self.balance = balance
@@ -15,12 +18,13 @@ class SavingsAccount(BankAccount):
         super().__init__(balance)
         self.min_balance = min_balance
 
-    def withdraw_savings(self, amount):
+    @override
+    def withdraw_money(self, amount):
         if (self.balance - amount) < self.min_balance:
             print(f"\n[ERROR] Cannot withdraw ${amount}")
             print(f"Your current balance is ${self.balance}, and the minimum allowed is ${self.min_balance}\n")
         else:
-            self.withdraw_money(amount)
+            super().withdraw_money(amount)
 
 
 if __name__=="__main__":
@@ -35,7 +39,7 @@ if __name__=="__main__":
             break
         elif choice == "w":
             withdraw = float(input("Enter the Amount you want to Withdraw: "))
-            new_account.withdraw_savings(withdraw)
+            new_account.withdraw_money(withdraw)
         elif choice == "d":
             deposit = float(input("Enter the Amount of your Deposit: "))
             new_account.deposit_money(deposit)
