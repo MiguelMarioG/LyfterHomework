@@ -25,7 +25,7 @@ class Employee:
         if percentage <= 0:
             print("The percentage must be greater than 0")
             return
-        increase = self.__salary * (percentage / 100)
+        increase = self.__salary * (percentage)
         self.__salary += increase
         print(f"¡{self.__name} Was Promoted! the New Salary: ${self.__salary:,.2f}")
 
@@ -33,7 +33,7 @@ class Employee:
 def main():
     employee = Employee("Carlos", 3000.0)
     print(f"Employee: {employee.name} with Salary: ${employee.salary:,.2f}\n")  
-    employee.promote(10)  
+    employee.promote(0.1)  
 
     #Example if I put a negative Value, can be removed after you check the code
     try:
@@ -44,4 +44,11 @@ def main():
 
 if __name__=="__main__":
     main()
+
+
+
+
+
+
+
 
