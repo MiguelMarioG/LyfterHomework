@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
 
-class Vehicle ():
+class Vehicle (ABC):
     def __init__(self, brand: str, year: int):
         self._brand = brand
         self.__year = year
@@ -55,6 +55,3 @@ def main():
 
 if __name__=="__main__":
     main()
-
-
-
