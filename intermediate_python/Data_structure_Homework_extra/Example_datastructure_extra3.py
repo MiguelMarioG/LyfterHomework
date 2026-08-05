@@ -74,6 +74,9 @@ class DoubleLinkedList:
         while current_node is not None and current_node.data != data:
             current_node = current_node.next
 
+        if current_node is None:
+            return
+
         if current_node == self.head:
             self.head = current_node.next
             if self.head is not None:
@@ -108,5 +111,3 @@ dll.print_backward()
 print()
 dll.print_forward()
 dll.print_backward()
-
-
