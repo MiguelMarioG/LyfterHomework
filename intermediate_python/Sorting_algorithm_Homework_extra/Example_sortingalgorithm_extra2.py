@@ -18,8 +18,6 @@ def bubble_sort_steps(list_to_sort):
 				has_made_change += 1
 			else:
 				print('-- The current element is smaller than the next one. Nothing change...')
-		if not has_made_change:
-			return
 	print(f"Iterations: {iteration}")
 	print(f"Exchanges: {has_made_change}")
 

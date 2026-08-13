@@ -1,13 +1,17 @@
 def bubble_sort_validate(list_to_validate):
+	if not list_to_validate:
+		return "Error: The list is empty"
 	for element in list_to_validate:
-		if element == None or isinstance(element, str):
-			return True
-	return False
+		if isinstance(element, bool) or not isinstance(element, (int, float)):
+			return "Error: The List contain non-numeric elements"
+	return None
 
 
 def bubble_sort(list_to_validate):
-	if bubble_sort_validate(list_to_validate):
-		raise TypeError ("The list contains non-numeric elements")
+	error_message = bubble_sort_validate(list_to_validate)
+	if error_message:
+		print(error_message)
+		return error_message
 	
 	for first_index in range(0, len(list_to_validate) - 1):
 		has_made_change=False
@@ -25,7 +29,7 @@ def bubble_sort(list_to_validate):
 			else:
 				print('-- The current element is smaller than the next one. Nothing change...')
 		if not has_made_change:
-			return
+			break
 
 
 # list_sort = [2, 5, 1, 3, 4, 6]
@@ -38,8 +42,9 @@ def bubble_sort(list_to_validate):
 
 list_to_validate = [5, "hello", 2]
 bubble_sort(list_to_validate)
-print(list_to_validate)
 
+# list_to_validate = []
+# bubble_sort(list_to_validate)
 
 
 
