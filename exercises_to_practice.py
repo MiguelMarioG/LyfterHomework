@@ -40,15 +40,53 @@
 # print(bool("False"))
 
 
+# def manual_add(n):
+#     result = 0
+#     for i in range(1, n + 1):
+#         result += i
+#     return result
+# def add_formula(n):
+#     return n * (n + 1) // 2
+
+# number=add_formula(50)
+# print(number)
 
 
+# a = [1,2,3]
+# print(len(a))
 
 
+# data = {
+#     "JavaScript" : 3,
+#     "React" : 2,
+#     "SQL" : 4
+# }
+# result = []
+# for language, count in data.items():
+#     for number in range(count):
+#         result.append(language[:number+1])
+# result = sorted(
+#     result,
+#     key=len,
+#     reverse=True
+# )
+# print(result)
 
 
-
-
-
-
-
+# import asyncio
+# import datetime
+# async def asyncHello(name: str, seconds: int):
+#     print(f"""the function{name}, last {seconds} seconds
+#         starts in {datetime.datetime.now().strftime('%H:%M:%S')}""")
+#     await asyncio.sleep(seconds)
+#     print(
+#         f"the function {name} has ended in {datetime.datetime.now().strftime('%H:%M:%S')}")
+# asyncio.run(asyncHello("Test", 5))
+# async def extra_exercises():
+#     await asyncio.gather(
+#         asyncHello("C", 3),
+#         asyncHello("B", 2),
+#         asyncHello("A", 1),
+#     )
+# asyncio.run(extra_exercises())
 
