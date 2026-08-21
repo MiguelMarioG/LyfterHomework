@@ -1,9 +1,9 @@
 def bubble_sort_validate(list_to_validate):
-	if not list_to_validate:
-		raise ValueError("The list is empty")
-	
-	elif not isinstance(list_to_validate, list):
+	if not isinstance(list_to_validate, list):
 		raise TypeError("Values ​​that are not a list cannot be used")
+
+	elif not list_to_validate:
+		raise ValueError("The list is empty")
 
 	for element in list_to_validate:
 		if isinstance(element, bool) or not isinstance(element, (int, float)):
