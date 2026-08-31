@@ -2,7 +2,7 @@ import csv
 
 def gender_count (path):
     gender_counts = {}
-    with open(path, 'r', encoding='utf-8') as file:
+    with open(path,'r', encoding='utf-8') as file:
         reader = csv.DictReader(file)
         for index in reader:
             gender = index["Gender"]
