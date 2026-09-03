@@ -226,32 +226,185 @@
 
 
 
-import FreeSimpleGUI as sg
+# import FreeSimpleGUI as sg
 
-# 1. Definir el diseño de la ventana
-layout = [
-    [sg.Text("¿Cuál es tu lenguaje favorito?")],
-    # Ambos pertenecen al grupo "LANG"
-    [sg.Radio("Python", "LANG", default=True, key="-PYTHON-"), 
-    sg.Radio("JavaScript", "LANG", key="-JS-")],
-    [sg.Button("Enviar"), sg.Button("Salir")]
-]
+# # 1. Definir el diseño de la ventana
+# layout = [
+#     [sg.Text("¿Cuál es tu lenguaje favorito?")],
+#     # Ambos pertenecen al grupo "LANG"
+#     [sg.Radio("Python", "LANG", default=True, key="-PYTHON-"), 
+#     sg.Radio("JavaScript", "LANG", key="-JS-")],
+#     [sg.Button("Enviar"), sg.Button("Salir")]
+# ]
 
-# 2. Crear la ventana
-window = sg.Window("Ejemplo de Radio Buttons", layout)
+# # 2. Crear la ventana
+# window = sg.Window("Ejemplo de Radio Buttons", layout)
 
-# 3. Bucle de eventos
-while True:
-    event, values = window.read()
+# # 3. Bucle de eventos
+# while True:
+#     event, values = window.read()
     
-    if event in (sg.WIN_CLOSED, "Salir"):
-        break
+#     if event in (sg.WIN_CLOSED, "Salir"):
+#         break
         
-    if event == "Enviar":
-        # values[key] devuelve True si está seleccionado o False si no lo está
-        if values["-PYTHON-"]:
-            sg.popup("¡Excelente elección! Elegiste Python.")
-        elif values["-JS-"]:
-            sg.popup("¡Genial! Elegiste JavaScript.")
+#     if event == "Enviar":
+#         # values[key] devuelve True si está seleccionado o False si no lo está
+#         if values["-PYTHON-"]:
+#             sg.popup("¡Excelente elección! Elegiste Python.")
+#         elif values["-JS-"]:
+#             sg.popup("¡Genial! Elegiste JavaScript.")
 
-window.close()
+# window.close()
+
+
+
+# import FreeSimpleGUI as sg
+
+# layout = [
+#     [sg.Text("¡Texto que cambia de color!", font=("Arial", 16), key="-TEXTO-")],
+#     # Al poner enable_events=True, el input generará un evento al recibir el color
+#     [sg.Input(key="-INPUT_COLOR-", enable_events=True, visible=True), 
+#     sg.ColorChooserButton("Elegir Color", target="-INPUT_COLOR-")]
+# ]
+
+# window = sg.Window("Demo Interactiva", layout)
+
+# while True:
+#     event, values = window.read()
+    
+#     if event == sg.WIN_CLOSED:
+#         break
+        
+#     # Cuando el input cambia su contenido gracias al ColorChooserButton
+#     if event == "-INPUT_COLOR-":
+#         color_elegido = values["-INPUT_COLOR-"]
+#         # Evitamos errores si el usuario cierra el selector sin elegir nada
+#         if color_elegido and color_elegido != "None": 
+#             window["-TEXTO-"].update(text_color=color_elegido)
+
+# window.close()
+
+
+
+
+
+
+# import FreeSimpleGUI as sg
+
+# # Lista donde guardaremos las categorías como diccionarios
+# lista_categorias = []
+
+# layout = [
+#     [sg.Text("Nombre de la Categoría:"), sg.Input(key="-NOMBRE-", size=(20, 1))],
+    
+#     # Este input recibirá el código del color directamente desde el botón
+#     [sg.Text("Color seleccionado:"), 
+#     sg.Input(key="-COLOR-", size=(10, 1), readonly=True), # readonly evita que escriban cosas raras
+#     sg.ColorChooserButton("Elegir Color", target="-COLOR-")],
+    
+#     [sg.Button("Salvar Categoría"), sg.Button("Salir")],
+    
+#     [sg.Text("Categorías Guardadas:")],
+#     [sg.Listbox(values=[], size=(40, 6), key="-LISTA_VISUAL-")]
+# ]
+
+# window = sg.Window("Gestor de Categorías", layout)
+
+# while True:
+#     event, values = window.read()
+    
+#     if event in (sg.WIN_CLOSED, "Salir"):
+#         break
+        
+#     if event == "Salvar Categoría":
+#         nombre = values["-NOMBRE-"].strip()
+#         color = values["-COLOR-"]
+        
+#         # Validaciones básicas
+#         if not nombre:
+#             sg.popup_error("Por favor, introduce un nombre para la categoría.")
+#             continue
+#         if not color or color == "None":
+#             sg.popup_error("Por favor, selecciona un color para la categoría.")
+#             continue
+            
+#         # Guardamos la categoría en nuestra lista de datos
+#         nueva_categoria = {"nombre": nombre, "color": color}
+#         lista_categorias.append(nueva_categoria)
+        
+#         # Actualizamos la lista visual para mostrar el resultado (Nombre + Hexadecimal)
+#         nombres_visibles = [f"{c['nombre']} ({c['color']})" for c in lista_categorias]
+#         window["-LISTA_VISUAL-"].update(values=nombres_visibles)
+        
+#         # Limpiamos los campos para la siguiente categoría
+#         window["-NOMBRE-"].update("")
+#         window["-COLOR-"].update("")
+
+# window.close()
+
+# # Al final, tu lista de datos queda perfectamente estructurada así:
+# print("Lista final guardada:", lista_categorias)
+
+
+
+# import FreeSimpleGUI as sg
+
+# # 1. Tu diccionario original con los colores Hex
+# colores_por_categoria = {
+#     'petexpenses': '#FF0000',  # Letra Roja
+#     'food': '#008000',         # Letra Verde
+#     'utilities': '#0000FF'    # Letra Azul
+# }
+
+# # 2. Los datos que irán dentro de tu tabla (Matriz de datos)
+# datos_tabla = [
+#     ['01/03/2026', 'Alimento perro', 'petexpenses', '$50'],
+#     ['02/03/2026', 'Supermercado', 'food', '$100'],
+#     ['03/03/2026', 'Luz eléctrica', 'utilities', '$45'],
+#     ['04/03/2026', 'Juguete gato', 'petexpenses', '$15']
+# ]
+
+# # 3. Procesamos los datos para crear la lista de tuplas que sg.Table necesita
+# configuracion_colores = []
+
+# for indice, fila in enumerate(datos_tabla):
+#     categoria = fila[2]  # Supongamos que la categoría está en la columna índice 2
+    
+#     if categoria in colores_por_categoria:
+#         color_hex_texto = colores_por_categoria[categoria]
+#         # Estructura: (Índice, Color Texto, Color Fondo)
+#         # Usamos el color de fondo por defecto de la tabla o uno de tu agrado (ej. 'white')
+#         configuracion_colores.append((indice, color_hex_texto, '#FFFFFF'))
+
+# # 4. Diseño de la ventana de PySimpleGUI
+# layout = [
+#     [sg.Table(values=datos_tabla,
+#         headings=['Fecha', 'Detalle', 'Categoría', 'Monto'],
+#         row_colors=configuracion_colores, # <-- Aquí se asignan los colores inicialmente
+#         key='-TABLA-',
+#         auto_size_columns=True,
+#         num_rows=10)],
+#     [sg.Button('Cambiar colores dinámicamente'), sg.Button('Salir')]
+# ]
+
+# window = sg.Window('Ejemplo de Colores en Tabla', layout)
+
+# while True:
+#     event, values = window.read()
+#     if event in (sg.WIN_CLOSED, 'Salir'):
+#         break
+        
+#     # Si necesitas actualizar los colores en tiempo de ejecución:
+#     if event == 'Cambiar colores dinámicamente':
+#         # Nuevos colores que quieras aplicar siguiendo la misma lógica de índices
+#         nuevos_colores = [
+#             (0, '#000000', '#FFD700'), # Fila 0: Texto negro, Fondo Oro
+#             (3, '#FFFFFF', '#000000')  # Fila 3: Texto blanco, Fondo Negro
+#         ]
+#         # Actualizamos usando el método .update() del elemento
+#         window['-TABLA-'].update(row_colors=nuevos_colores)
+
+# window.close()
+
+
+

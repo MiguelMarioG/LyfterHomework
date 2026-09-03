@@ -1,4 +1,4 @@
-from interfaca_processor.graphic_processor import (
+from interface_processor.graphic_processor import (
     GraphicInterface
 )
 
