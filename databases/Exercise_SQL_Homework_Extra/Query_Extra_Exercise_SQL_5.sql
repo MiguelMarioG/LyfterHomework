@@ -1,0 +1,8 @@
+CREATE TABLE Categories (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name VARCHAR (25) NOT NULL UNIQUE,
+    Description TEXT NOT NULL
+);
+
+ALTER TABLE Products
+    ADD Category_id INTEGER NULL REFERENCES Categories (Id);
