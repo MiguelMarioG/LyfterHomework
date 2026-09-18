@@ -1,0 +1,5 @@
+ALTER TABLE Invoices
+    ADD Phone_Number BIGINT NULL DEFAULT 0;
+
+ALTER TABLE Invoices
+    ADD Employee_Code INTEGER NOT NULL DEFAULT 0;
