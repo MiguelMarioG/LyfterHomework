@@ -6,15 +6,15 @@ INSERT INTO Students (ID, Student_Name) VALUES
     (301, 'Marco Gómez'),
     (302, 'Carla Ruiz');
 
-INSERT INTO Courses (ID, Course_Name) VALUES
-    ('CS101', 'Python I'),
-    ('CS102', 'Python II');
-
 INSERT INTO Instructors (ID, Instructor_Name, Instructor_Email) VALUES
     (101, 'Juan Pérez', 'juan@uni.edu'),
     (102, 'Laura Rojas', 'laura@uni.edu');
 
-INSERT INTO Class_Register (ID, Students_Id, Courses_Id, Instructors_Id) VALUES
-    (201, 301, 'CS101', 101),
-    (202, 301, 'CS102', 102),
-    (203, 302, 'CS101', 101);
+INSERT INTO Courses (ID, Course_Name, Instructors_Id) VALUES
+    ('CS101', 'Python I', 101),
+    ('CS102', 'Python II', 102);
+
+INSERT INTO Class_Register (ID, Students_Id, Courses_Id) VALUES
+    (201, 301, 'CS101'),
+    (202, 301, 'CS102'),
+    (203, 302, 'CS101');

@@ -17,23 +17,36 @@
 -- a estas 3 tablas para normalizar este ejercicio. Ademas me fije en unos ejemplos
 -- que podia referencia las FK de la forma en la que lo hice en este ejercicio.
 
-CREATE TABLE Employee (
-    ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    Employee_Name VARCHAR (30) UNIQUE
-);
-
+-- Cambios departments debe estar dentro de employees ya que un empleado debe tener
+-- un departamento y de esa manera asignarlo a un proyecto.
 CREATE TABLE Departments (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Department VARCHAR (25) UNIQUE,
     Department_Phone VARCHAR (15) UNIQUE
 );
 
+CREATE TABLE Employee (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Employee_Name VARCHAR (30) UNIQUE,
+    Departments_Id INTEGER NOT NULL,
+    FOREIGN KEY (Departments_Id) REFERENCES Departments (ID)
+);
+
 CREATE TABLE Projects (
     ID VARCHAR (25) PRIMARY KEY,
     Project_Name VARCHAR (30),
-    Project_Budget FLOAT NOT NULL DEFAULT 0,
+    Project_Budget FLOAT NOT NULL DEFAULT 0
+);
+
+-- Investigue y al parecer puedo hacer una llave primaria compuesta de esa manera aun cuando
+-- sabemos que varios empleados pueden estar en un mismo proyecto el mismo empleado no puede
+-- estar dos veces en el mismo proyecto asi que cuando investigue como hacer para no duplicar
+-- un mismo empleado en un mismo proyecta era haciendo un llave primaria compuesta.
+CREATE TABLE Project_Allocation (
+    Projects_Id VARCHAR (25) NOT NULL,
     Employee_Id INTEGER NOT NULL,
-    Departments_Id INTEGER NOT NULL,
-    FOREIGN KEY (Employee_Id) REFERENCES Employee (ID),
-    FOREIGN KEY (Departments_Id) REFERENCES Departments (ID)
+    Assigned_Date DATE DEFAULT CURRENT_DATE,
+    PRIMARY KEY (Projects_Id, Employee_Id),
+    FOREIGN KEY (Projects_Id) REFERENCES Projects (ID),
+    FOREIGN KEY (Employee_Id) REFERENCES Employee (ID)
 );

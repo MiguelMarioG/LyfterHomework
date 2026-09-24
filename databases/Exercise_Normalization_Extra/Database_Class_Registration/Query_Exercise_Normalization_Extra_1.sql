@@ -13,23 +13,23 @@ CREATE TABLE Students (
     Student_Name VARCHAR (30) NOT NULL
 );
 
-CREATE TABLE Courses (
-    ID VARCHAR (25) PRIMARY KEY,
-    Course_Name VARCHAR (30) NOT NULL
-);
-
 CREATE TABLE Intructors (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Instructor_Name VARCHAR (30) NOT NULL,
     Instructor_Email VARCHAR (30) NOT NULL UNIQUE
 );
 
+CREATE TABLE Courses (
+    ID VARCHAR (25) PRIMARY KEY,
+    Course_Name VARCHAR (30) NOT NULL,
+    Instructors_Id INTEGER NOT NULL,
+    FOREIGN KEY (Instructors_Id) REFERENCES Instructors (ID)
+);
+
 CREATE TABLE Class_Register (
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
     Students_Id INTEGER NOT NULL,
     Courses_Id VARCHAR (25) NOT NULL,
-    Instructors_Id INTEGER NOT NULL,
     FOREIGN KEY (Students_Id) REFERENCES Students (ID),
-    FOREIGN KEY (Courses_Id) REFERENCES Courses (ID),
-    FOREIGN KEY (Instructors_Id) REFERENCES Instructors (ID)
+    FOREIGN KEY (Courses_Id) REFERENCES Courses (ID)
 );
