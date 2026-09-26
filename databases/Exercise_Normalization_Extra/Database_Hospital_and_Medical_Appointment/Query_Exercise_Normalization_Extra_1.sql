@@ -1,0 +1,27 @@
+CREATE TABLE Patients (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Patient_Name VARCHAR (30),
+    Patient_Phone VARCHAR (15) UNIQUE
+);
+
+CREATE TABLE Specialtys (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Specialty_Name VARCHAR (30)
+);
+
+CREATE TABLE Doctors (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Doctor_Name VARCHAR (30),
+    Specialtys_Id INTEGER NOT NULL,
+    FOREIGN KEY (Specialtys_Id) REFERENCES Specialtys (ID)
+);
+
+CREATE TABLE Appointments (
+    ID VARCHAR (15) PRIMARY KEY,
+    Patients_Id INTEGER NOT NULL,
+    Doctors_Id INTEGER NOT NULL,
+    Date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    Time VARCHAR (15) NOT NULL,
+    FOREIGN KEY (Patients_Id) REFERENCES Patients (ID),
+    FOREIGN KEY (Doctors_Id) REFERENCES Doctors (ID)
+);
