@@ -1,9 +1,12 @@
--- Aqui fue un INNER JOIN normal para moestrar todo lo que tiene relacion entre
+-- Aqui fue un INNER JOIN normal para mostrar todo lo que tiene relacion entre
 -- las dos tablas escluyendo la unica que tiene NULL en su Authors_Id
+-- Aqui cambia todo ya que usamos LEFT JOIN que hace que aparezca el ultimo
+-- libro tenga o no tenga Autor ya que el LEFT o RIGHT JOINT muestra las tablas
+-- cuando lo que comparas tenga un NULL
 SELECT Books.Book_Name, Authors.Author_Name
 FROM Books AS books
-INNER JOIN Authors AS authors
-ON books.Authors_Id = authors.ID;
+LEFT JOIN Authors AS authors
+    ON books.Authors_Id = authors.ID;
 
 -- Aqui tuvimos que usar un WhERE para especificar que Authors_Id IS NULL
 SELECT Books.Book_Name, Authors.Author_Name
