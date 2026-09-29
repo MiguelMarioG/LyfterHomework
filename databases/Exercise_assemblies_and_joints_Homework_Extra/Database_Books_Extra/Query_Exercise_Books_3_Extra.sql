@@ -3,8 +3,8 @@
 -- momentaneamente en la RAM en lo que mostramos los datos con el QUERY y
 -- dandonos el resultado
 SELECT 
-    Customers.Customer_Name,
-    COUNT(Rents.Customers_Id) AS total_rents
+    customers.Customer_Name,
+    COUNT(rents.Customers_Id) AS total_rents
 FROM Rents AS rents
 INNER JOIN Customers AS customers
     ON rents.Customers_Id = customers.ID
@@ -19,10 +19,10 @@ LIMIT 3;
 -- donde reside un valor NULL y no debemos hacer nada en State ya que es un valor
 -- que reside en Rents por si misma sin necesidad de compararla con otra tabla
 SELECT
-    Customers.Customer_Name,
-    Books.Book_Name,
-    Authors.Author_Name,
-    Rents.State
+    customers.Customer_Name,
+    books.Book_Name,
+    authors.Author_Name,
+    rents.State
 FROM Rents AS rents
 INNER JOIN Customers AS customers 
     ON rents.Customers_Id = customers.ID
